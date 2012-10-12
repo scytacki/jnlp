@@ -336,10 +336,10 @@ module Jnlp
         raise ArgumentError, "Must specify destination directory when updatng resource", caller
       end
       file_exists = File.exists?(destination)
-      if file_exists && @signature_verified == nil
+      if file_exists && !options[:skip_signature_verfication] && @signature_verified == nil
         verify_signature
       end
-      unless file_exists && @signature_verified
+      unless file_exists && (options[:skip_signature_verfication] || @signature_verified)
         FileUtils.mkdir_p(File.dirname(destination))
         puts "reading:     #{source}" if options[:verbose]
         tried_to_read = 0

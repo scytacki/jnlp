@@ -7,3 +7,4 @@ spec/reports
 ydoc
 *.gem
 Gemfile.lock
+unzipped
