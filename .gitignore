@@ -8,3 +8,4 @@ ydoc
 *.gem
 Gemfile.lock
 unzipped
+bin
